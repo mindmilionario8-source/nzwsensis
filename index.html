@@ -527,6 +527,71 @@
                 animation-duration: 13s;
             }
         }
+
+        /* VSL Glowing Running Purple Light (Border Beam) */
+        .vsl-beam-card {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 2.5px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #0a0614;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: vslBeamPulse 3.5s ease-in-out infinite;
+        }
+
+        .vsl-beam-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 250deg,
+                rgba(114, 75, 206, 0.25) 280deg,
+                #724bce 315deg,
+                #a855f7 340deg,
+                #d8b4fe 355deg,
+                #ffffff 360deg
+            );
+            animation: vslBeamRotate 4s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .vsl-beam-inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            background-color: #000000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        @keyframes vslBeamRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes vslBeamPulse {
+            0%, 100% {
+                box-shadow: 0 0 18px rgba(114, 75, 206, 0.35), 0 0 35px rgba(168, 85, 247, 0.15);
+            }
+            50% {
+                box-shadow: 0 0 28px rgba(168, 85, 247, 0.55), 0 0 50px rgba(114, 75, 206, 0.25);
+            }
+        }
     </style>
 </head>
 <body>
@@ -536,17 +601,13 @@
         <div class="section" style="position: relative; background-color: #000000; padding-top: 0px; padding-bottom: 40px; padding-left: 20px; padding-right: 20px; margin-left: calc(-1 * 20px); margin-right: calc(-1 * 20px); width: calc(100% + 2 * 20px);"><div style="position: relative; z-index: 2;"><div style="display: flex; justify-content: center; align-items: center; margin: 0;"><img src="https://i.ibb.co/j9dNHMCD/6c056905-c6b2-4a4e-b601-dd7db35ebe7d.png" alt="Logo" width="190" height="auto" style="width: 190px; max-width: 80%; height: auto; border-radius: 0px; display: block; margin: 0 auto;" loading="eager" fetchpriority="high" decoding="async" /></div>
 <div style="height: 8px;"></div>
 <h1 style="color: #fafafa; font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; text-align: center; line-height: 1.25; letter-spacing: 0.5px; padding: 0 0 16px; margin: 0;">🎬 VEJA O PAINEL EM AÇÃO NA PRÁTICA:</h1>
-<div style="display: flex; justify-content: center; width: 100%;"><div style="width: 100%; max-width: 100%; border-radius: 0px; margin: 0 auto; overflow: hidden; border: none; box-shadow: none;">
-    <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background-color: #000000; border-radius: 0px; border: none; overflow: hidden;">
-      <iframe 
-        src="https://player.vimeo.com/video/1224285301?badge=0&autopause=0&player_id=0&app_id=58479" 
-        loading="eager"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-        allowfullscreen 
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; outline: none;"
-      ></iframe>
+<div style="display: flex; justify-content: center; width: 100%;">
+  <div class="vsl-beam-card">
+    <div class="vsl-beam-inner">
+      <div style="position:relative; width:100%; height:0px; padding-bottom:75.000%;"><iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/wiyqhh?loop=0" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
     </div>
-</div></div>
+  </div>
+</div>
 <div style="height: 24px;"></div><div style="text-align: center; margin-top: 0px; margin-bottom: 0px;">
         <button type="button" onclick="var t=document.getElementById('oferta');if(t){t.scrollIntoView({behavior:'smooth',block:'start'});}" style="background-color: #724bce; color: #ffffff; font-size: 18px; font-weight: 700; text-align: center; padding: 18px 48px; border-radius: 12px; animation: pulseBtn 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; display: inline-block; border: none; text-decoration: none; transition: transform 0.2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">EU QUERO!</button>
       </div>
