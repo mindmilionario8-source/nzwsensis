@@ -298,6 +298,74 @@
             animation: phone3DFlipEntrance 1.6s cubic-bezier(0.2, 0.85, 0.4, 1) forwards, floatPhone 3.8s ease-in-out 1.6s infinite;
         }
 
+        /* PRICING CARD LOGO 3D SPIN ENTRANCE & ENGAGEMENT ANIMATION */
+        @keyframes priceLogo3DSpinEntrance {
+            0% {
+                opacity: 0.35;
+                transform: perspective(1000px) rotateY(1080deg) scale(0.72);
+                filter: drop-shadow(0 0 24px rgba(168, 85, 247, 0.95)) drop-shadow(0 0 45px rgba(106, 55, 225, 0.8));
+            }
+            60% {
+                opacity: 1;
+                transform: perspective(1000px) rotateY(180deg) scale(1.08);
+                filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.85));
+            }
+            78% {
+                transform: perspective(1000px) rotateY(-22deg) scale(0.97);
+                filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.5));
+            }
+            90% {
+                transform: perspective(1000px) rotateY(10deg) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(1000px) rotateY(0deg) scale(1);
+                filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.5));
+            }
+        }
+
+        @keyframes priceLogoSubtleFloat {
+            0%, 100% {
+                transform: perspective(1000px) translateY(0px) scale(1);
+                filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.5));
+            }
+            50% {
+                transform: perspective(1000px) translateY(-5px) scale(1.02);
+                filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.45)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+            }
+        }
+
+        .pricing-logo-wrap {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .pricing-logo-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 12px;
+            margin: 0 auto;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease;
+            will-change: transform, filter;
+            opacity: 1;
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .pricing-logo-img.pricing-logo-spin-active {
+            animation: priceLogo3DSpinEntrance 1.85s cubic-bezier(0.2, 0.85, 0.3, 1) forwards, priceLogoSubtleFloat 3.6s ease-in-out 1.85s infinite;
+        }
+
+        .pricing-logo-img:hover {
+            transform: perspective(1000px) scale(1.06) rotateY(16deg);
+            filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.85));
+        }
+
         .benefit-card-hover {
             transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
@@ -843,7 +911,7 @@
         
         <div class="scroll-reveal" style="background-color: #000000; color: #ffffff; text-align: center; padding: 32px; border-radius: 16px; border: 2px solid #6a37e1; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); position: relative; overflow: hidden; margin-bottom: 24px;">
           <div style="position: absolute; top: 12px; right: 12px; background-color: #6a37e1; color: #ffffff; padding: 6px 14px; border-radius: 8px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.2); white-space: nowrap;">🎯 MAIS CUSTO BENEFICIO </div>
-          <div style="margin-bottom: 20px;"><img src="https://i.ibb.co/j9dNHMCD/6c056905-c6b2-4a4e-b601-dd7db35ebe7d.png" alt="NZWSENSI V5 - 30 DIAS " width="250" height="75" style="width: 100%; max-width: 250px; height: auto; border-radius: 12px; margin: 0 auto; display: block;" loading="lazy" decoding="async" /></div>
+          <div class="pricing-logo-wrap"><img src="https://i.ibb.co/j9dNHMCD/6c056905-c6b2-4a4e-b601-dd7db35ebe7d.png" alt="NZWSENSI V5 - 30 DIAS " width="250" height="75" class="pricing-logo-img" loading="lazy" decoding="async" /></div>
           <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #ffffff;">NZWSENSI V5 - 30 DIAS </h3>
           
           <!-- PREÇO SUPERIOR (ESTILO RETORNADO) -->
@@ -998,7 +1066,7 @@
         
         <div class="scroll-reveal" style="background-color: #000000; color: #ffffff; text-align: center; padding: 32px; border-radius: 16px; border: 2px solid #1a38d1; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); position: relative; overflow: hidden;">
           <div style="position: absolute; top: 12px; right: 12px; background-color: #916ef2; color: #fffafa; padding: 6px 14px; border-radius: 8px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.2); white-space: nowrap;">🏆 MAIS COMPLETO</div>
-          <div style="margin-bottom: 20px;"><img src="https://i.ibb.co/j9dNHMCD/6c056905-c6b2-4a4e-b601-dd7db35ebe7d.png" alt="NZWSENSI V5 - PERMANENTE" width="250" height="75" style="width: 100%; max-width: 250px; height: auto; border-radius: 12px; margin: 0 auto; display: block;" loading="lazy" decoding="async" /></div>
+          <div class="pricing-logo-wrap"><img src="https://i.ibb.co/j9dNHMCD/6c056905-c6b2-4a4e-b601-dd7db35ebe7d.png" alt="NZWSENSI V5 - PERMANENTE" width="250" height="75" class="pricing-logo-img" loading="lazy" decoding="async" /></div>
           <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #ffffff;">NZWSENSI V5 - PERMANENTE</h3>
           
           <!-- PREÇO SUPERIOR (ESTILO RETORNADO) -->
@@ -1275,6 +1343,27 @@
           });
         }, { threshold: 0.25, rootMargin: '0px 0px -30px 0px' });
         phoneObserver.observe(phone);
+      })();
+    </script>
+
+    <!-- Trigger Pricing Card Logo 3D Spin on Scroll Intersection -->
+    <script>
+      (function() {
+        var priceLogos = document.querySelectorAll('.pricing-logo-img');
+        if (!priceLogos.length) return;
+        if (!('IntersectionObserver' in window)) {
+          priceLogos.forEach(function(img) { img.classList.add('pricing-logo-spin-active'); });
+          return;
+        }
+        var priceObserver = new IntersectionObserver(function(entries, obs) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('pricing-logo-spin-active');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+        priceLogos.forEach(function(img) { priceObserver.observe(img); });
       })();
     </script>
 </body>
