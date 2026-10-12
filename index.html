@@ -660,6 +660,317 @@
                 box-shadow: 0 0 28px rgba(168, 85, 247, 0.55), 0 0 50px rgba(114, 75, 206, 0.25);
             }
         }
+
+        /* NZW SENSI SPECIAL OFFER POPUP MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(3, 2, 7, 0.88);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            box-sizing: border-box;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            background: radial-gradient(circle at 50% 0%, rgba(138, 75, 255, 0.18) 0%, rgba(9, 7, 18, 0.98) 70%), #07050d;
+            border: 1.5px solid rgba(147, 83, 255, 0.55);
+            border-radius: 24px;
+            padding: 32px 24px 26px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(122, 59, 237, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            box-sizing: border-box;
+            transform: scale(0.92) translateY(14px);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: auto;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #d1d5db;
+            transition: all 0.2s ease;
+            padding: 0;
+            outline: none;
+            z-index: 10;
+        }
+
+        .modal-close-btn:hover,
+        .modal-close-btn:focus-visible {
+            background: rgba(147, 83, 255, 0.3);
+            border-color: #a855f7;
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+
+        .modal-badge-special {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            background: rgba(147, 83, 255, 0.18);
+            border: 1px solid rgba(168, 85, 247, 0.45);
+            color: #d8b4fe;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            box-shadow: 0 0 16px rgba(147, 83, 255, 0.25);
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+            margin: 0 0 8px;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
+            margin: 0 0 20px;
+            text-align: center;
+            padding: 0 8px;
+        }
+
+        /* Price block */
+        .modal-price-box {
+            background: rgba(17, 12, 33, 0.85);
+            border: 1px solid rgba(147, 83, 255, 0.3);
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 24px rgba(106, 55, 225, 0.12);
+        }
+
+        .modal-price-original {
+            font-size: 14px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 2px;
+            letter-spacing: 0.4px;
+        }
+
+        .modal-price-strike {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .modal-price-intro {
+            font-size: 13px;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .modal-price-highlight {
+            font-size: 44px;
+            font-weight: 900;
+            color: #a855f7;
+            line-height: 1.05;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 28px rgba(168, 85, 247, 0.6);
+        }
+
+        /* Benefits list */
+        .modal-benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 22px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .modal-benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.35;
+            color: #f3f4f6;
+        }
+
+        .modal-check-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #793eed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+            box-shadow: 0 0 10px rgba(121, 62, 237, 0.45);
+        }
+
+        /* CTA button */
+        .modal-cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #8b45f7 0%, #6a37e1 100%);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 900;
+            text-align: center;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 6px 25px rgba(122, 59, 237, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            box-sizing: border-box;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.25;
+            transition: all 0.25s ease;
+            outline: none;
+        }
+
+        .modal-cta-btn:hover,
+        .modal-cta-btn:focus-visible {
+            background: linear-gradient(135deg, #9959ff 0%, #7540eb 100%);
+            box-shadow: 0 8px 32px rgba(139, 69, 247, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px) scale(1.01);
+            color: #ffffff;
+        }
+
+        .modal-disclaimer {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.55);
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 14px;
+            letter-spacing: 0.2px;
+        }
+
+        .modal-decline-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.65);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12.5px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            padding: 6px 12px;
+            transition: color 0.2s ease;
+            outline: none;
+        }
+
+        .modal-decline-btn:hover,
+        .modal-decline-btn:focus-visible {
+            color: #ffffff;
+        }
+
+        /* 90 DIAS ACCESS BADGE */
+        .badge-90-days {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(135deg, #1f143c, #130c29);
+            border: 1px solid #7c3aed;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 10.5px;
+            font-weight: 800;
+            color: #c084fc;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            box-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
+            margin-top: 6px;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-card {
+                padding: 26px 18px 20px;
+                border-radius: 20px;
+            }
+            .modal-title {
+                font-size: 19px;
+            }
+            .modal-subtitle {
+                font-size: 13px;
+            }
+            .modal-price-highlight {
+                font-size: 38px;
+            }
+            .modal-cta-btn {
+                font-size: 15px;
+                padding: 16px 20px;
+            }
+            .modal-benefit-item {
+                font-size: 13px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .modal-overlay,
+            .modal-card,
+            .modal-cta-btn {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1055,7 +1366,7 @@
           </div>
 
           <!-- BOTÃO DE COMPRA COM DESIGN ARREDONDADO (PILL) CONFORME FOTO -->
-          <a href="https://ggcheckout.app/checkout/v5/aSekaMZSD5W3aT8ks6Ca" target="_blank" rel="noopener noreferrer" class="checkout-btn" style="display: block; width: 100%; padding: 18px 24px; background-color: #6a37e1; color: #ffffff; font-size: 18px; font-weight: 900; text-align: center; border-radius: 50px; box-shadow: 0 4px 18px #6a37e155; text-decoration: none; box-sizing: border-box; cursor: pointer; text-transform: uppercase; line-height: 1.25; letter-spacing: 0.5px;">COMPRAR AGORA COM DESCONTO</a>
+          <a href="https://ggcheckout.app/checkout/v5/aSekaMZSD5W3aT8ks6Ca" target="_blank" rel="noopener noreferrer" id="btn-compra-7dias" class="checkout-btn" style="display: block; width: 100%; padding: 18px 24px; background-color: #6a37e1; color: #ffffff; font-size: 18px; font-weight: 900; text-align: center; border-radius: 50px; box-shadow: 0 4px 18px #6a37e155; text-decoration: none; box-sizing: border-box; cursor: pointer; text-transform: uppercase; line-height: 1.25; letter-spacing: 0.5px;">COMPRAR AGORA COM DESCONTO</a>
           
           <div style="margin-top: 14px; text-align: center;">
             <img src="https://i.ibb.co/WWBnkXPy/hwm5gk-FF1-Ts-L1i-GD70-LQOovw.png" alt="Formas de Pagamento e Compra Segura" width="280" height="36" style="width: 100%; max-width: 280px; height: auto; margin: 0 auto; display: block; opacity: 0.95;" loading="lazy" decoding="async" />
@@ -1365,6 +1676,231 @@
           });
         }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
         priceLogos.forEach(function(img) { priceObserver.observe(img); });
+      })();
+    </script>
+
+    <!-- POP-UP OFERTA ESPECIAL UPGRADE (90 DIAS POR R$ 15,90) -->
+    <div id="modal-oferta-upgrade" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-upgrade-title" aria-describedby="modal-upgrade-subtitle">
+      <div class="modal-card" role="document">
+        
+        <!-- Botão Fechar (X) -->
+        <button type="button" class="modal-close-btn" id="modal-close-x" aria-label="Fechar oferta e continuar com a opção original">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div style="text-align: center;">
+          <!-- LOGO OFICIAL NZW SENSI (TRANSPARENTE E PRESERVADA) -->
+          <img src="https://i.ibb.co/j9dNHMCD/6c056905-c6b2-4a4e-b601-dd7db35ebe7d.png" alt="NZW Sensi" width="170" height="auto" style="width: 170px; max-width: 70%; height: auto; display: block; margin: 0 auto 10px;" loading="eager" />
+
+          <!-- SELO 90 DIAS DE ACESSO INTEGRADO -->
+          <div class="badge-90-days">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>90 DIAS DE ACESSO</span>
+          </div>
+
+          <!-- PEQUENO SELO SUPERIOR -->
+          <div>
+            <span class="modal-badge-special">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              OFERTA ESPECIAL PARA VOCÊ
+            </span>
+          </div>
+
+          <!-- TÍTULO PRINCIPAL -->
+          <h2 id="modal-upgrade-title" class="modal-title">ESPERE! TENHO UMA OFERTA MELHOR</h2>
+
+          <!-- SUBTÍTULO -->
+          <p id="modal-upgrade-subtitle" class="modal-subtitle">Leve 90 dias de acesso ao NZW Sensi e aproveite por muito mais tempo.</p>
+        </div>
+
+        <!-- BLOCO DE PREÇO -->
+        <div class="modal-price-box">
+          <div class="modal-price-original">
+            DE <span class="modal-price-strike">R$ 49,90</span>
+          </div>
+          <div class="modal-price-intro">
+            POR APENAS
+          </div>
+          <div class="modal-price-highlight">
+            R$ 15,90
+          </div>
+        </div>
+
+        <!-- LISTA DE BENEFÍCIOS -->
+        <ul class="modal-benefits-list">
+          <li class="modal-benefit-item">
+            <div class="modal-check-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <span>90 dias de acesso ao NZW Sensi</span>
+          </li>
+          <li class="modal-benefit-item">
+            <div class="modal-check-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <span>Recursos e conteúdos incluídos no plano</span>
+          </li>
+          <li class="modal-benefit-item">
+            <div class="modal-check-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <span>Tutorial de instalação passo a passo</span>
+          </li>
+          <li class="modal-benefit-item">
+            <div class="modal-check-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <span>Conteúdos e orientações de uso</span>
+          </li>
+          <li class="modal-benefit-item">
+            <div class="modal-check-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <span>Acesso ao grupo de suporte no Telegram</span>
+          </li>
+          <li class="modal-benefit-item">
+            <div class="modal-check-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <span>Bônus exclusivos apresentados na oferta</span>
+          </li>
+        </ul>
+
+        <!-- CTA PRINCIPAL DE UPGRADE (90 DIAS POR R$ 15,90) -->
+        <a href="https://ggcheckout.app/checkout/v5/SlqYNR2fblZt3mj213Fl" id="modal-upgrade-cta-btn" target="_blank" rel="noopener noreferrer" class="modal-cta-btn">
+          QUERO 90 DIAS POR R$ 15,90
+        </a>
+
+        <!-- TEXTO ABAIXO DO BOTÃO -->
+        <div class="modal-disclaimer">
+          Oferta opcional • Confira as condições de acesso
+        </div>
+
+        <!-- OPÇÃO SECUNDÁRIA (RECUSAR E CONTINUAR COM A OFERTA ORIGINAL DE R$ 10,90) -->
+        <button type="button" class="modal-decline-btn" id="modal-decline-btn">
+          Não, prefiro continuar com meu plano atual
+        </button>
+
+      </div>
+    </div>
+
+    <!-- SCRIPT DE CONTROLE DO POP-UP DE UPGRADE -->
+    <script>
+      (function() {
+        /* ============================================================
+         * CONFIGURAÇÃO DOS LINKS DE CHECKOUT:
+         * Checkout real do upgrade de 90 dias:
+         * ============================================================ */
+        var UPGRADE_CHECKOUT_URL = "https://ggcheckout.app/checkout/v5/SlqYNR2fblZt3mj213Fl";
+        
+        // URL da oferta original (7 dias por R$ 10,90)
+        var ORIGINAL_CHECKOUT_URL = "https://ggcheckout.app/checkout/v5/aSekaMZSD5W3aT8ks6Ca";
+
+        var btnTrigger = document.getElementById('btn-compra-7dias');
+        var modal = document.getElementById('modal-oferta-upgrade');
+        var closeX = document.getElementById('modal-close-x');
+        var declineBtn = document.getElementById('modal-decline-btn');
+        var upgradeCtaBtn = document.getElementById('modal-upgrade-cta-btn');
+        var modalCard = modal ? modal.querySelector('.modal-card') : null;
+
+        if (!btnTrigger || !modal) return;
+
+        // Atualiza o link do botão de upgrade com a constante configurável
+        if (upgradeCtaBtn && UPGRADE_CHECKOUT_URL) {
+          upgradeCtaBtn.setAttribute('href', UPGRADE_CHECKOUT_URL);
+        }
+
+        // Função para abrir o pop-up
+        function openUpgradeModal() {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          if (closeX) closeX.focus();
+        }
+
+        // Função para fechar o pop-up
+        function closeUpgradeModal() {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        // Função para continuar com a compra original de R$ 10,90
+        function proceedOriginalCheckout() {
+          closeUpgradeModal();
+          // Redireciona de forma limpa para o checkout original
+          window.location.href = ORIGINAL_CHECKOUT_URL;
+        }
+
+        // Intercepta o clique no botão de R$ 10,90 para apresentar a oferta especial
+        btnTrigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          openUpgradeModal();
+        });
+
+        // Clique no X fecha o modal e não impede nova interação
+        if (closeX) {
+          closeX.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeUpgradeModal();
+          });
+        }
+
+        // Opção secundária: recusa o upgrade e segue para o fluxo de compra original
+        if (declineBtn) {
+          declineBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            proceedOriginalCheckout();
+          });
+        }
+
+        // Ao clicar no botão principal de upgrade, fecha o modal após o clique
+        if (upgradeCtaBtn) {
+          upgradeCtaBtn.addEventListener('click', function() {
+            setTimeout(function() {
+              closeUpgradeModal();
+            }, 600);
+          });
+        }
+
+        // Evita que cliques dentro do card fechem o pop-up
+        if (modalCard) {
+          modalCard.addEventListener('click', function(e) {
+            e.stopPropagation();
+          });
+        }
+
+        // Clique no overlay escuro fora do card fecha o pop-up
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            closeUpgradeModal();
+          }
+        });
+
+        // Fechar com tecla ESC para acessibilidade
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeUpgradeModal();
+          }
+        });
       })();
     </script>
 </body>
