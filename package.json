@@ -29,7 +29,13 @@
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
-    "vite": "^6.2.3",
+    "rollup": "4.64.5",
     "@types/express": "^4.17.21"
+  },
+  "overrides": {
+    "rollup": "4.64.5"
+  },
+  "resolutions": {
+    "rollup": "4.64.5"
   }
 }
