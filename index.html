@@ -949,9 +949,114 @@
         @media (prefers-reduced-motion: reduce) {
             .modal-overlay,
             .modal-card,
-            .modal-cta-btn {
+            .modal-cta-btn,
+            .urgency-top-bar,
+            .urgency-siren {
                 transition: none !important;
                 transform: none !important;
+                animation: none !important;
+            }
+        }
+
+        /* TOP URGENCY WARNING BAR (RED HIGH-CONVERTING URGENCY BANNER) */
+        .urgency-top-bar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 99999;
+            background: linear-gradient(90deg, #991b1b 0%, #dc2626 50%, #991b1b 100%);
+            border-bottom: 2px solid #ef4444;
+            box-shadow: 0 4px 18px rgba(220, 38, 38, 0.55), 0 2px 6px rgba(0, 0, 0, 0.4);
+            animation: urgencyPulseGlow 2.5s ease-in-out infinite;
+            padding: 10px 14px;
+            box-sizing: border-box;
+        }
+
+        @keyframes urgencyPulseGlow {
+            0%, 100% {
+                box-shadow: 0 4px 18px rgba(220, 38, 38, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+            }
+            50% {
+                box-shadow: 0 4px 28px rgba(239, 68, 68, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+            }
+        }
+
+        .urgency-top-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .urgency-icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 999px;
+            padding: 3px 10px;
+            font-size: 11.5px;
+            font-weight: 900;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: #ffffff;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        .urgency-siren {
+            font-size: 14px;
+            margin-right: 5px;
+            display: inline-block;
+            animation: urgencySirenShake 1.8s infinite;
+        }
+
+        @keyframes urgencySirenShake {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            15% { transform: scale(1.18) rotate(-9deg); }
+            30% { transform: scale(1.18) rotate(9deg); }
+            45% { transform: scale(1.12) rotate(-5deg); }
+            60% { transform: scale(1) rotate(0deg); }
+        }
+
+        .urgency-text-message {
+            color: #ffffff;
+            font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .urgency-text-message strong {
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 480px) {
+            .urgency-top-bar {
+                padding: 8px 10px;
+            }
+            .urgency-top-container {
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+            .urgency-icon-badge {
+                font-size: 10.5px;
+                padding: 2px 8px;
+            }
+            .urgency-text-message {
+                font-size: 12px;
+                line-height: 1.35;
             }
         }
     </style>
@@ -961,6 +1066,17 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SC6X4SF"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <!-- TOP URGENCY WARNING BAR (MENSAGEM DE URGÊNCIA EM VERMELHO) -->
+    <aside class="urgency-top-bar" role="alert" aria-label="Aviso de urgência">
+      <div class="urgency-top-container">
+        <span class="urgency-icon-badge"><span class="urgency-siren">⚠️</span> ATENÇÃO</span>
+        <span class="urgency-text-message">
+          <strong>NÃO SAIA DESSA PÁGINA!</strong> VOCÊ PODE PERDER O SEU ACESSO E O DESCONTO EXCLUSIVO.
+        </span>
+      </div>
+    </aside>
+
     <div class="container">
         <div class="content">
         <!-- HEADER / MAIN SECTION -->
